@@ -6,7 +6,14 @@ dotenv.config();
 const { Pool } = require('pg');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://appdev-assignment-frontend.vercel.app',
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
+
+app.options('*', cors()); // <-- add this line
+
 app.use(express.json());
 
 const db = new Pool({
