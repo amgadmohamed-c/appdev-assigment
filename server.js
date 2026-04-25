@@ -7,7 +7,7 @@ const { Pool } = require('pg');
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'https://appdev-assignment-frontend.vercel.app/' }));
+app.use(cors({ origin: 'https://appdev-assignment-frontend.vercel.app' }));
 
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
